@@ -6,7 +6,7 @@ import requests
 
 class Hetrixmonitor(BotPlugin):
     """
-    Look for airtable domains and IPs on various blacklists
+    Look for domains and IPs on various blacklists
     """
 
     #def get_configuration_template(self):
@@ -32,9 +32,9 @@ class Hetrixmonitor(BotPlugin):
 
 
     def check_lists(self):
-            IPS = os.getenv("AT_IPS")
-            DOMAINS = os.getenv("AT_DOMAINS")
-            APIKEY = os.getenv("APIKEY")
+            IPS = os.getenv("HETRIX_IPS")
+            DOMAINS = os.getenv("HETRIX_DOMAINS")
+            APIKEY = os.getenv("HETRIX_APIKEY")
             ips = list()
             domains = list()
 
@@ -72,6 +72,6 @@ class Hetrixmonitor(BotPlugin):
 
 
     def activate(self):
-        poll_minutes = 1
+        poll_minutes = int(os.getenv("HETRIX_POLL_MINUTES"))
         super().activate()
         self.start_poller(60 * poll_minutes, self.check_lists)
