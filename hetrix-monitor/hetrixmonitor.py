@@ -24,7 +24,7 @@ class Hetrixmonitor(BotPlugin):
         if ("Blacklisted_Count" in results) and (results["Blacklisted_Count"] > 0):
             lists = [blklist["RBL"] for blklist in results["Blacklisted_On"]]
             self.send(
-                self.build_identifier("#abuse-bot"),
+                self.build_identifier("#security-dev-bot"),
                 "{} Appears in {} Blacklists\n see details in *<{}|HetrixTools>*".format(
                     results["Target"],
                     results["Blacklisted_Count"],
