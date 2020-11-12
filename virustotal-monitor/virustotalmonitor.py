@@ -47,14 +47,14 @@ class Virustotalmonitor(BotPlugin):
                 try:
                     r = requests.get(
                         "https://www.virustotal.com/vtapi/v2/url/report?apikey={}&resource={}".format(
-                            APIKEY, ip
+                            APIKEY, i
                         ),
                         headers=headers
                     )
                     if r.status_code == 200:
                         self.send_to_slack(json.loads(r.text))
                 except Exception as e:
-                    self.log.info("Error requesting ip ({}) check: {}".format(ip, e))
+                    self.log.info("Error requesting ip ({}) check: {}".format(i, e))
 
 
     def scan_indicators(self):
@@ -87,7 +87,7 @@ class Virustotalmonitor(BotPlugin):
                     if r.status_code == 200:
                         self.send_to_slack(json.loads(r.text))
                 except Exception as e:
-                    self.log.info("Error requesting ip ({}) check: {}".format(ip, e))
+                    self.log.info("Error requesting ip ({}) check: {}".format(i, e))
 
 
     def activate(self):
