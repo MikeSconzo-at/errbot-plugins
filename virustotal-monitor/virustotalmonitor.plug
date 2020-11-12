@@ -1,0 +1,13 @@
+[Core]
+name = VirusTotalMonitor
+module = virustotalmonitor
+
+[Documentation]
+description = Look for airtable domains and IPs on various blacklists
+
+[Python]
+version = 3
+
+[Errbot]
+max = 6.1.5
+
