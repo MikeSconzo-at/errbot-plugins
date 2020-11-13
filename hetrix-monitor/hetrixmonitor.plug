@@ -3,7 +3,7 @@ name = HetrixMonitor
 module = hetrixmonitor
 
 [Documentation]
-description = Look for airtable domains and IPs on various blacklists
+description = Look for domains and IPs on various blacklists
 
 [Python]
 version = 3
