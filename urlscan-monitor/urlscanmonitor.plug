@@ -1,0 +1,13 @@
+[Core]
+name = URLScanMonitor
+module = urlscanmonitor
+
+[Documentation]
+description = Look for airtable domains and sites that leverage airtable appearing in URLScan as an indicator of malicious
+
+[Python]
+version = 3
+
+[Errbot]
+max = 6.1.5
+
