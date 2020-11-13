@@ -29,7 +29,7 @@ class Virustotalmonitor(BotPlugin):
             IPS = os.getenv("VT_IPS")
             DOMAINS = os.getenv("VT_DOMAINS")
             APIKEY = os.getenv("VT_APIKEY")
-            headers = {'User-Agent': 'Airtable Security Bot'}
+            headers = {'User-Agent': 'Security Monitor Bot'}
             ips = list()
             domains = list()
 
