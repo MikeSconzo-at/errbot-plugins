@@ -17,7 +17,7 @@ class Urlscanmonitor(BotPlugin):
         r = redis.from_url(os.environ.get("URLSCAN_REDIS_URL"))
         timestamp = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
-        for result in results:
+        for result in results['results']:
             self.info.log(result)
             scan_url = result['page']['url']
             result_url = result['result']
