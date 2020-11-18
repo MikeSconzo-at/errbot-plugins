@@ -1,8 +1,10 @@
 from errbot import BotPlugin
 import os
+import sys
 import json
 import requests
 import redis
+import traceback
 from datetime import datetime
 
 
@@ -51,7 +53,9 @@ class Urlscanmonitor(BotPlugin):
                 if r.status_code == 200:
                     self.send_to_slack(json.loads(r.text))
             except Exception as e:
+                exc_type, exc_value, exc_traceback = sys.exc_info()
                 self.log.info("Error requesting domain ({}) check: {}".format(domain, e))
+                self.log.info(repr(traceback.format_exception(exc_type, exc_value, exc_traceback)))
 
 
     def activate(self):
