@@ -12,7 +12,7 @@ class Urlscanmonitor(BotPlugin):
     """
 
     def send_to_slack(self, results):
-        r = redis.from_url(os.environ.get("REDIS_URL"))
+        r = redis.from_url(os.environ.get("URLSCAN_REDIS_URL"))
         timestamp = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
         for result in results:
