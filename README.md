@@ -1,4 +1,4 @@
-# errbot-pluginshetrix-monitor/hetrixmonitor.py:            IPS = os.getenv("HETRIX_IPS")
+# errbot-plugins
 
 # Usage
 Make sure to set the following variables in order to use the plugins
@@ -10,3 +10,6 @@ Make sure to set the following variables in order to use the plugins
 * VT_DOMAINS - Domains you want monitor via VT lookups
 * VT_APIKEY - API key used to access VT
 * VT_POLL_MINUTES - How frequently you want to poll VT
+* URLSCAN_DOMAINS - Domains to look for in URLScan
+* URLSCAN_POLL_MINUTESs - How frequently to poll URLScan
+* URLSCAN_REDIS_URL - Redis connection string for state tracking for URLScan
