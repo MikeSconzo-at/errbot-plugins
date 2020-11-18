@@ -18,14 +18,12 @@ class Urlscanmonitor(BotPlugin):
         timestamp = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
         for result in results['results']:
-            self.info.log(result)
             scan_url = result['page']['url']
             result_url = result['result']
             try:
                 if not r.get(scan_url):
                     r.set(scan_url, timestamp)
                     message = 'Found URL: <{}|{}> in URLScan'.format(result_url, scan_url)
-                    self.log.info('{} - {}\n{}'.format(scan_url, result_url, message))
                     if scan_url.starswith('https://airtable.com/'):
                         message = 'Found *Airtable* URL: <{}|{}> in URLScan'.format(result_url, scan_url)
                     self.send(self.build_identifier("#security-dev-bot"), message,)
