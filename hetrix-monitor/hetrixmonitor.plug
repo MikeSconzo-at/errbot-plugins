@@ -9,5 +9,5 @@ description = Look for domains and IPs on various blacklists
 version = 3
 
 [Errbot]
-max = 6.1.5
+max = 6.1.6
 
