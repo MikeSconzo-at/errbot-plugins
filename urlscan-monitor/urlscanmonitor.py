@@ -18,6 +18,7 @@ class Urlscanmonitor(BotPlugin):
         timestamp = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
         for result in results:
+            self.info.log(result)
             scan_url = result['page']['url']
             result_url = result['result']
             try:
@@ -52,7 +53,6 @@ class Urlscanmonitor(BotPlugin):
                     headers=headers
                 )
                 if r.status_code == 200:
-                    self.log.info(json.loads(r.text))
                     self.send_to_slack(json.loads(r.text))
             except Exception as e:
                 exc_type, exc_value, exc_traceback = sys.exc_info()
