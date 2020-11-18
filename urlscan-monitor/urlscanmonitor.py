@@ -24,7 +24,7 @@ class Urlscanmonitor(BotPlugin):
                 if not r.get(scan_url):
                     r.set(scan_url, timestamp)
                     message = 'Found URL: <{}|{}> in URLScan'.format(result_url, scan_url)
-                    if scan_url.starswith('https://airtable.com/'):
+                    if scan_url.startswith('https://airtable.com/'):
                         message = 'Found *Airtable* URL: <{}|{}> in URLScan'.format(result_url, scan_url)
                     self.send(self.build_identifier("#security-dev-bot"), message,)
             except Exception as e:
