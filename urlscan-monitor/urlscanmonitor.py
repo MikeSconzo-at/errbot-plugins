@@ -26,7 +26,7 @@ class Urlscanmonitor(BotPlugin):
                     message = 'Found URL: <{}|{}> in URLScan'.format(result_url, scan_url)
                     if scan_url.startswith('https://airtable.com/'):
                         message = 'Found *Airtable* URL: <{}|{}> in URLScan'.format(result_url, scan_url)
-                    self.send(self.build_identifier("#security-dev-bot"), message,)
+                    self.send(self.build_identifier(os.environ.get("URLSCAN_SLACK_CHANNEL")), message,)
             except Exception as e:
                 self.log.info("Error sending message for: {} - {}".format(result_url, e))
 

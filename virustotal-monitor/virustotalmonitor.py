@@ -18,7 +18,7 @@ class Virustotalmonitor(BotPlugin):
                     if results['scans'][r]['detected']:
                         lists.append(r)
             self.send(
-                self.build_identifier("#security-dev-bot"),
+                self.build_identifier(os.getenv('VT_SLACK_CHANNEL')),
                 "{} Appears in {} Blacklists\n see details in *<{}|VirusTotal>*".format(
                     results["resource"],
                     results["positvies"],
