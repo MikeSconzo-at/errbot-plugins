@@ -51,6 +51,7 @@ class Urlscanmonitor(BotPlugin):
                     headers=headers
                 )
                 if r.status_code == 200:
+                    self.log.info(json.loads(r.text))
                     self.send_to_slack(json.loads(r.text))
             except Exception as e:
                 exc_type, exc_value, exc_traceback = sys.exc_info()
